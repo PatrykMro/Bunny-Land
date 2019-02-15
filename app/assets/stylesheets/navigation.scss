@@ -1,0 +1,38 @@
+.navbar-dropdown {
+  margin-right: 20px;
+  background-color: green;
+  &:hover {
+    background-color: grey;
+    color: blue
+  }
+}
+
+.navbar-login-logout-btn {
+  background-color: green;
+  &:hover {
+    background-color: red;
+  }
+}
+
+
+.dropdown-item {
+  color: blue;
+  background-color: #f8f9fa ;
+  &:hover {
+    background-color: #80808078;
+  }
+
+  &.last-one {
+    color: red;
+  }
+}
+
+a.navbar-brand {
+  font-style: roma;
+  height: auto;
+  &.app-name {
+    &:hover {
+      color: #ffab07c2;
+    }
+  }
+}
