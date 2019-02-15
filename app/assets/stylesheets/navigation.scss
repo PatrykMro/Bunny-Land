@@ -1,19 +1,18 @@
-.navbar-dropdown {
+.navbar {
+  background: #557394;
+  color: white;
+}
+
+.navbar-button {
+  background-color: #375779;
+  color: white;
+  border-radius: 10px;
   margin-right: 20px;
-  background-color: green;
   &:hover {
-    background-color: grey;
-    color: blue
+    color: white;
+    background: #a5484f99;
   }
 }
-
-.navbar-login-logout-btn {
-  background-color: green;
-  &:hover {
-    background-color: red;
-  }
-}
-
 
 .dropdown-item {
   color: blue;
@@ -28,11 +27,24 @@
 }
 
 a.navbar-brand {
-  font-style: roma;
+  font-family: 'HelveticaNueve';
   height: auto;
+  color: white;
+  cursor: pointer;
   &.app-name {
     &:hover {
       color: #ffab07c2;
     }
+  }
+}
+
+.button {
+  background-color: #375779;
+  color: white;
+  border-radius: 2px;
+  padding: 4px;
+  &:hover {
+    color: white;
+    background: #a5484f99;
   }
 }
