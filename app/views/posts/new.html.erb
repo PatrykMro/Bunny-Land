@@ -1,0 +1,10 @@
+<hr>
+<%= form_for @post do |p| %>
+<p>
+  <%= p.label :text %>
+  <%= p.text_area :text %>
+</p>
+<p>
+  <%= p.submit %>
+</p>
+<% end %>

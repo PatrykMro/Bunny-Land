@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-md-12">
+    <%= "Hello #{current_user.username} here are your all posts" %>
+    <% @posts.each do |post| %>
+    <div class="card  margin-bottom">
+      <div class="card-body">
+        <p class="card-text"><%= post.text %></p>
+        <%= link_to 'View Post', post, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>
