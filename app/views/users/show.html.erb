@@ -1,0 +1,13 @@
+<div class="card text-center">
+  <div class="card-header">
+    Your profile
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Details</h5>
+    <p class="card-text"><%= "User name : #{@user.username}" %></p>
+    <p class="card-text"><%= "Email : #{@user.email}" %></p>
+    <% if user_signed_in? && current_user == @user %>
+      <%= link_to 'Edit your profile', edit_user_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
