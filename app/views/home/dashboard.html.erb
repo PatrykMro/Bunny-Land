@@ -1,5 +1,10 @@
 <div class="container">
   <div class="col-md-12">
+    <div class="card margin-bottom-top">
+      <div class="card-body">
+        <%= "You have #{current_user.posts.count} posts on our bunny site" %>
+      </div>
+    </div>
     <%= "Hello #{current_user.username} here are your all posts" %>
     <% @posts.each do |post| %>
     <div class="card  margin-bottom">
