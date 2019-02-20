@@ -1,5 +1,5 @@
 class  PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :prevent_hack, only: %i[edit update destroy]
 
@@ -32,7 +32,6 @@ class  PostsController < ApplicationController
       flash[:success] = "You have successfully edit your post"
       redirect_to @post
     else
-      flash[:danger] = "There was error with editing your post"
       render 'edit'
     end
   end

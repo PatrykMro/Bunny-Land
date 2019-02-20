@@ -8,6 +8,7 @@
   margin-bottom: 15px;
 }
 
+
 .margin-bottom-top {
   margin-bottom: 15px;
   margin-top: 15px;
@@ -15,4 +16,37 @@
 
 .delete-color {
   background-color: red;
+}
+
+.log_in {
+  background-color: #752222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  padding-left: 30px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.radius-ban {
+  color: white;
+  background-color: #3d4d8c;;
+  border-radius: 20px;
+  padding-right: 10px;
+  margin: 10px;
+  border-width: medium;
+  border-color: black;
+}
+
+.button-helper {
+  background-color: #375779;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  &:hover {
+    color: white;
+    background: #a5484f99;
+    cursor: pointer;
+  }
 }
