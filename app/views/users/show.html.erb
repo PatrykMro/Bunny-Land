@@ -3,6 +3,9 @@
     Your profile
   </div>
   <div class="card-body">
+    <%= form_for @user, html: { multipart: true } do |f| %>
+      <%= image_tag(@user.avatar_url) if @user.avatar? %>
+    <% end %>
     <h5 class="card-title">Details</h5>
     <p class="card-text"><%= "User name : #{@user.username}" %></p>
     <p class="card-text"><%= "Email : #{@user.email}" %></p>
