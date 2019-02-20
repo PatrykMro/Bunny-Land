@@ -18,6 +18,10 @@
   background-color: red;
 }
 
+.height-panel {
+  height: 500px;
+}
+
 .log_in {
   background-color: #752222;
   color: white;
@@ -49,4 +53,20 @@
     background: #a5484f99;
     cursor: pointer;
   }
+}
+.profile-radius {
+  margin-top: -160px;
+  border-radius: 20%;
+  border: 10px solid white;
+  width: 300px;
+  height: 300px;
+  border-radius: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.profile-background {
+  height: 400px;
+  background-position: center center;
+  background-size: cover;
 }

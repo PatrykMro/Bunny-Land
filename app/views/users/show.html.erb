@@ -1,16 +1,22 @@
-<div class="card text-center">
-  <div class="card-header">
-    Your profile
+
+  <div class="profile-background" style="background-image: url('<%= @user.background_picture_url %>');" >
   </div>
-  <div class="card-body">
-    <%= form_for @user, html: { multipart: true } do |f| %>
-      <%= image_tag(@user.avatar_url) if @user.avatar? %>
-    <% end %>
-    <h5 class="card-title">Details</h5>
-    <p class="card-text"><%= "User name : #{@user.username}" %></p>
-    <p class="card-text"><%= "Email : #{@user.email}" %></p>
-    <% if user_signed_in? && current_user == @user %>
-      <%= link_to 'Edit your profile', edit_user_path, class: "btn btn-primary" %>
-    <% end %>
+
+  <div class="mx-auto profile-radius" style="background-image: url('<%= @user.avatar_url %>');">
   </div>
+
+    <div class="col-md-8 offset-md-1"
+      <div class="text-left">
+        <div class="card-body">
+          <h3 class="card-title">Details:</h3>
+          <p class="card-text"><%= "User name : #{@user.username}" %></p>
+          <p class="card-text"><%= "Email : #{@user.email}" %></p>
+          <h5 class="card-title">About me:</h5>
+          <p class="card-text"><%= "About : #{@user.about}" %></p>
+          <% if user_signed_in? && current_user == @user %>
+            <%= link_to 'Edit your profile', edit_user_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
