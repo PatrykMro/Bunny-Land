@@ -1,0 +1,4 @@
+<%= simple_form_for @post, html: { class: 'form-vertical' } do |f| %>
+  <%= f.input :text, as: :text, label: false, placeholder: 'Enter here your post...' %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

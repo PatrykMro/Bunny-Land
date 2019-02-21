@@ -1,19 +1,18 @@
-<div class="card">
-  <h5 class="card-header">Edit your profile</h5>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <%= simple_form_for @user  do |f| %>
-          <%= f.input :username, class: 'form-control' %>
-          <%= f.input :email, class: 'form-control' %>
-          <%= f.input :password, class: 'form-control' %>
-          <%= f.input :password_confirmation, class: 'form-control' %>
-          <%= f.input :about, class: 'form-control' %>
+<%= render 'user_images' %>
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">Edit your profile</h5>
+    <div class="card-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :username, wrapper_html: { class: 'row' }, label_html: { class: 'col-sm-2 col-form-label' }, input_html: { class: 'col-sm-10' } %>
+          <%= f.input :email, wrapper_html: { class: 'row' }, label_html: { class: 'col-sm-2 col-form-label' }, input_html: { class: 'col-sm-10' } %>
+          <%= f.input :password, wrapper_html: { class: 'row' }, label_html: { class: 'col-sm-2 col-form-label' }, input_html: { class: 'col-sm-10' } %>
+          <%= f.input :password_confirmation, wrapper_html: { class: 'row' }, label_html: { class: 'col-sm-2 col-form-label' }, input_html: { class: 'col-sm-10' } %>
+          <%= f.input :about, wrapper_html: { class: 'row' }, label_html: { class: 'col-sm-2 col-form-label' }, input_html: { class: 'col-sm-10' } %>
           <%= f.input :avatar, as: :file %>
           <%= f.input :background_picture, as: :file %>
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
