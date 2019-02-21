@@ -3,23 +3,25 @@
     <span style="font-size: 2em; color: Tomato;">
       <i class="fas fa-carrot"><%= link_to 'Bunny-Land', root_path, class:"navbar-brand app-name" %></i>
     </span>
-    <% if user_signed_in? %>
-      <%= current_user.username %>
-    <% end %>
     <form class="form-inline">
       <div class="btn-group">
         <% if user_signed_in? %>
 
-        <%= link_to 'Your dashboard', dashboard_path, class: "btn btn-lg navbar-button " %>
-
-        <button type="button" class="btn dropdown-toggle btn-lg navbar-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Action
+        <button type="button" class="btn dropdown btn-lg navbar-button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          <div class="display-row">
+            <div class="small-circle-img" style="background-image:
+                        url('<%= current_user.avatar_url %>');">
+            </div>
+            <%= current_user.username %>
+          </div>
         </button>
         <div class="dropdown-menu">
           <%= link_to 'Your profile', user_path(current_user), class: "dropdown-item" %>
           <%= link_to 'Edit profile', edit_user_path(current_user), class: "dropdown-item" %>
           <%= link_to 'All posts', posts_path, class: "dropdown-item" %>
           <%= link_to 'Create post', new_post_path, class: "dropdown-item" %>
+          <%= link_to 'Your dashboard', dashboard_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "dropdown-item last-one" %>
 
