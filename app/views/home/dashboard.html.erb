@@ -17,4 +17,5 @@
     <% end %>
 
   </div>
+  <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inter_window: 1, outer_window: 0 %>
 </div>

@@ -20,6 +20,8 @@ gem 'font_awesome5_rails'
 gem 'simple_form'
 gem 'friendly_id', '~> 5.2.4'
 gem 'carrierwave', '~> 1.0'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate-bootstrap4'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
