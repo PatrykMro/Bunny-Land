@@ -5,6 +5,7 @@ class  PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC").paginate( page: params[:page], per_page: 10 )
+    @post = Post.new
   end
 
   def show; end
@@ -17,11 +18,14 @@ class  PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
 
-    if @post.save
-      flash[:success] = "You have created an post"
-      redirect_to @post
-    else
-      render 'new'
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post.post, success: 'Post was successfully created.' }
+        format.js   { }
+      else
+        format.html { render :new }
+        format.js { render :new }
+      end
     end
   end
 

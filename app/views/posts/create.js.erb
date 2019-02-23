@@ -1,0 +1,10 @@
+$('#posts').prepend("<%= j render 'post', post: @post %>");
+$('#post_text').val('');
+
+var textNumber = $('#post_number').text();
+var intNumber = parseInt(textNumber);
+var newNumber = intNumber + 1;
+
+$('#post_number').text(newNumber);
+
+$('#post_text').removeClass('is-invalid');
