@@ -1,5 +1,11 @@
-<h5 class="card-header"><%= post.user.username %>
-<div class="card-body">
-  <p class="card-text"><%= post.text %></p>
-  <%= link_to 'View Post', post, class: "btn btn-primary" %>
+<div class="card" id="post-<%= post.id %>">
+  <h5 class="card-header"><%= post.user.username %></h5>
+  <div class="card-body">
+    <p class="card-text"><%= post.text %></p>
+    <%= link_to 'View Post', post, class: "btn btn-primary" %>
+    <% if current_user == post.user %>
+      <%= link_to "Delete post", post, remote: true, method: :delete, data: { confirm: 'Are you sure?'},
+                                        class: "btn btn-primary delete-color" %>
+    <% end %>
+  </div>
 </div>

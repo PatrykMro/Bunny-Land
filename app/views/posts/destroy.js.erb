@@ -1,0 +1,7 @@
+$('#post-<%= @post.id %>').remove();
+
+var textNumber = $('#post_number').text();
+var intNumber = parseInt(textNumber);
+var newNumber = intNumber - 1;
+
+$('#post_number').text(newNumber);

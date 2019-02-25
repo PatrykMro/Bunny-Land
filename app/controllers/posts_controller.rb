@@ -20,7 +20,7 @@ class  PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post.post, success: 'Post was successfully created.' }
+        format.html { redirect_to @post, success: 'Post was successfully created.' }
         format.js   { }
       else
         format.html { render :new }
@@ -44,7 +44,11 @@ class  PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to posts_path, success: 'Post was successfully created.' }
+      format.js 
+
+    end
   end
 
   private

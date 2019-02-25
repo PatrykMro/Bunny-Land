@@ -24,10 +24,7 @@
   </div>
   <div id="posts">
     <% @posts.each do |post| %>
-      <div class="card">
-        <%= render 'post', post: post %>
-      </div>
-      <hr/>
+      <%= render 'post', post: post %>
     <% end %>
   </div>
 
