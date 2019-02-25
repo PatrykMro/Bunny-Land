@@ -29,14 +29,22 @@ class  PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html { render :edit }
+      format.js { render :edit }
+    end
+  end
 
   def update
-    if @post.update(post_params)
-      flash[:success] = "You have successfully edit your post"
-      redirect_to @post
-    else
-      render 'edit'
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, success: 'You edit post successfully' }
+        format.js   { }
+      else
+        format.html { render :edit }
+        format.js { render :edit }
+      end
     end
   end
 
@@ -46,7 +54,7 @@ class  PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to posts_path, success: 'Post was successfully created.' }
-      format.js 
+      format.js
 
     end
   end
