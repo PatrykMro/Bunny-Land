@@ -1,26 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card post-form">
-        <div class="card-header">
-          <h3>Create Post</h3>
-        </div>
-        <div class="card-body">
-          <%= render 'form' %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="card margin-bottom-top">
+  <div class="card margin-bottom-top"  id="new_post">
     <div class="card-body">
       <span id="post_number">
         <%= @posts.count %>
       </span>
        posts are on our bunny page
+       <span class="offset-md-8"> <%= link_to "Create Post", new_post_path(@post), remote: true,
+                                  class: "btn btn-primary " %> </span>
     </div>
+
   </div>
   <div id="posts">
     <% @posts.each do |post| %>
