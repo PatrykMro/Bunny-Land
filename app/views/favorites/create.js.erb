@@ -1,0 +1,9 @@
+$('#post-<%= @post.id %> .carrot').replaceWith("<%= j render 'destroy', post: @post %>");
+
+var count = $('#post-<%= @post.id %> .favorites_count');
+
+var findNumber = $(count).html();
+var intNumber = isNaN(parseInt(findNumber)) ? 0 : parseInt(findNumber);
+var newNumber = intNumber + 1;
+
+$(count).html(newNumber)

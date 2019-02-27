@@ -10,24 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_213704) do
+ActiveRecord::Schema.define(version: 2019_02_27_213200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachinary_files", id: :serial, force: :cascade do |t|
-    t.string "attachinariable_type"
-    t.integer "attachinariable_id"
-    t.string "scope"
-    t.string "public_id"
-    t.string "version"
-    t.integer "width"
-    t.integer "height"
-    t.string "format"
-    t.string "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -72,5 +66,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_213704) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "favorites", "posts"
+  add_foreign_key "favorites", "users"
   add_foreign_key "posts", "users"
 end

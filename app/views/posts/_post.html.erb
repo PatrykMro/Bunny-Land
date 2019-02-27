@@ -1,5 +1,18 @@
 <div class="card" id="post-<%= post.id %>">
-  <h5 class="card-header"><%= post.user.username %></h5>
+  <h5 class="card-header"><%= post.user.username %>
+    <span class="offset-md-8">
+      <span class="favorites_count">
+        <% if post.favorites.count != 0 %>
+          <%= post.favorites.count %>
+        <% end %>
+      </span>
+      <% if post.favorited?(current_user) %>
+        <%= render 'favorites/destroy', post: post %>
+      <% else %>
+        <%= render 'favorites/create', post: post %>
+      <% end %>
+    </span>
+  </h5>
   <div class="card-body">
     <p class="card-text"><%= post.text %></p>
     <%= link_to 'View Post', post, class: "btn btn-primary" %>
