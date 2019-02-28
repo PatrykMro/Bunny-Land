@@ -1,0 +1,11 @@
+<div class="card" id="comment-<%= comment.id %>">
+  <h5 class="card-header"><%= comment.user.username %></h5>
+  <div class="card-body">
+    <p class="card-text"><%= comment.body %></p>
+    <% if current_user == comment.user %>
+      <%= link_to "Edit comment", edit_post_comment_path(comment.post, comment),remote: true, class: "btn btn-primary " %>
+      <%= link_to "Delete comment", [comment.post, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?'},
+                                        class: "btn btn-primary delete-color" %>
+    <% end %>
+  </div>
+</div>

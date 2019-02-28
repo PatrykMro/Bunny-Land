@@ -12,7 +12,9 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :favorites
-  has_many :favorite_posts, class_name: 'Post', foreign_key: :posts_id, through: :favorites
+  has_many :comments
+  has_many :comment_post, through: :comments, source: :post
+  has_many :favorite_posts, through: :favorites, source: :post
 
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?

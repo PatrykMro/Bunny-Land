@@ -16,10 +16,18 @@
   <div class="card-body">
     <p class="card-text"><%= post.text %></p>
     <%= link_to 'View Post', post, class: "btn btn-primary" %>
+    <%= link_to "Comment", new_post_comment_path(post), remote: true, class: "btn btn-primary " %>
     <% if current_user == post.user %>
       <%= link_to "Edit post", edit_post_path(post), remote:true, class: "btn btn-primary " %>
       <%= link_to "Delete post", post, remote: true, method: :delete, data: { confirm: 'Are you sure?'},
                                         class: "btn btn-primary delete-color" %>
     <% end %>
+  </div>
+  <div class="card-footer">
+    <div id="comments">
+      <% post.comments.each do |comment| %>
+        <%= render 'comments/comment', comment: comment %>
+      <% end %>
+    </div>
   </div>
 </div>

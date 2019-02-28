@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resource :favorites, only: [:create, :destroy]
+    resources :comments, except: [:show, :index]
   end
   resources :users
 
