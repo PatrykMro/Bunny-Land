@@ -5,14 +5,14 @@
         <div class="card-header">
           <h5><%= @post.user.username %></h5>
         </div>
-  <div class="card-body">
-    <p class="card-text"><%= @post.text %></p>
-    <%= link_to "Back to all posts", posts_path, class: "btn btn-primary" %>
-    <% if @post.user == current_user %>
-      <%= link_to "Delete post", @post, method: :delete, data: { confirm: 'Are you sure?'},
-                                        class: "btn btn-primary delete-color" %>
-      <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary " %>
-    <% end %>
+        <div class="card-body">
+          <p class="card-text"><%= @post.text %></p>
+          <%= link_to "Back to all posts", posts_path, class: "btn btn-primary" %>
+          <% if @post.user == current_user %>
+            <%= link_to "Delete post", @post, method: :delete, data: { confirm: 'Are you sure?'},
+                                              class: "btn btn-primary delete-color" %>
+            <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-primary " %>
+          <% end %>
         </div>
       </div>
     </div>

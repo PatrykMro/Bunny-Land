@@ -1,6 +1,18 @@
 <div class="card" id="post-<%= post.id %>">
   <h5 class="card-header"><%= post.user.username %>
-    <span class="offset-md-8">
+
+  </h5>
+  <div class="card-body">
+    <p class="card-text"><%= post.text %></p>
+    <%= link_to 'View Post', post, class: "btn btn-primary" %>
+    <% if current_user == post.user %>
+      <%= link_to "Edit post", edit_post_path(post), remote:true, class: "btn btn-primary " %>
+      <%= link_to "Delete post", post, remote: true, method: :delete, data: { confirm: 'Are you sure?'},
+                                        class: "btn btn-primary delete-color" %>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <span>
       <span class="favorites_count">
         <% if post.favorites.count != 0 %>
           <%= post.favorites.count %>
@@ -12,26 +24,19 @@
         <%= render 'favorites/create', post: post %>
       <% end %>
     </span>
-  </h5>
-  <div class="card-body">
-    <p class="card-text"><%= post.text %></p>
-    <%= link_to 'View Post', post, class: "btn btn-primary" %>
-    <% if current_user == post.user %>
-      <%= link_to "Edit post", edit_post_path(post), remote:true, class: "btn btn-primary " %>
-      <%= link_to "Delete post", post, remote: true, method: :delete, data: { confirm: 'Are you sure?'},
-                                        class: "btn btn-primary delete-color" %>
-    <% end %>
 
-    <span class="col-md-3 offset-md-7">
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <span class="offset-md-1">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample-<%= post.id %>" aria-expanded="false" aria-controls="collapseExample-<%= post.id %>">
         Comment
       </button>
     </span>
-    <div class="collapse" id="collapseExample">
-      <hr>
-      <%= link_to "Comment", new_post_comment_path(post), remote: true, class: "btn btn-primary comment-button" %>
-      <hr>
-      <% post.comments.each do |comment| %>
-          <%= render 'comments/comment', comment: comment %>
-      <% end %>
+    <div class="card w-50 collapse" id="collapseExample-<%= post.id %>">
+
+      <%= render 'comments/new_form', post: post, comment: Comment.new %>
+        <% post.comments.each do |comment| %>
+            <%= render 'comments/comment', comment: comment %>
+        <% end %>
     </div>
+  </div>
+
+</div>

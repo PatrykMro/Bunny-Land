@@ -1,2 +1,2 @@
 $('#new-comment-form').remove('')
-$('#post-<%= @post.id %> #collapseExample .comment-button').after(" <%= j render 'comments/new', post: @post %>")
+$('#post-<%= @post.id %> #collapseExample-<%= @post.id %> .comment-button').after(" <%= j render 'comments/new', post: @post %>")
