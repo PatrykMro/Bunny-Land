@@ -1,4 +1,4 @@
-<div class="card" id="post-<%= post.id %>">
+<div class="card post-display" id="post-<%= post.id %>">
   <h5 class="card-header"><%= post.user.username %>
 
   </h5>
@@ -11,7 +11,7 @@
                                         class: "btn btn-primary delete-color" %>
     <% end %>
   </div>
-  <div class="card-footer">
+  <div class="card-footer post-footer">
     <span>
       <span class="favorites_count">
         <% if post.favorites.count != 0 %>
@@ -24,13 +24,10 @@
         <%= render 'favorites/create', post: post %>
       <% end %>
     </span>
-
-    <span class="offset-md-1">
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample-<%= post.id %>" aria-expanded="false" aria-controls="collapseExample-<%= post.id %>">
-        Comment
-      </button>
-    </span>
-    <div class="card w-50 collapse" id="collapseExample-<%= post.id %>">
+    <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample-<%= post.id %>" aria-expanded="false" aria-controls="collapseExample-<%= post.id %>">
+      Comments
+    </button>
+    <div class="card collapse margin-top" id="collapseExample-<%= post.id %>">
 
       <%= render 'comments/new_form', post: post, comment: Comment.new %>
         <% post.comments.each do |comment| %>

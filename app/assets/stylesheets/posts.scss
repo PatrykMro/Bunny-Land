@@ -1,3 +1,54 @@
 .post-form {
   margin-top: 50px;
 }
+
+.margin-right {
+  margin-right: 2px;
+}
+
+.post-display {
+  margin-bottom: 15px;
+
+}
+
+.post-footer {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.comment-display {
+  background-color: beige;
+  margin-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.display-row-comment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.buttons-edit-destroy {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.time_ago {
+  text-align: center;
+  font-family: auto;
+  font-style: italic;
+  margin-left: 10px;
+  border-right: 1px solid rgb(9, 123, 255);
+}
+.username-comment {
+  font-size: x-large;
+  font-family: inherit;
+}
+
+.comment-form {
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 10px;
+}

@@ -1,16 +1,21 @@
-<div class="offset-md-2" id="comment-<%= comment.id %>">
-  <h5 class="card-header">
-    <div class="display-row">
-      <div class="small-circle-img margin-left" style="background-image: url('<%= comment.user.avatar_url %>');"></div>
-      <%= comment.user.username %>
+<div class="comment-display" id="comment-<%= comment.id %>">
+  <div class="display-row-comment">
+    <div class="col">
+      <div class="display-row">
+        <span class="small-circle-img margin-right" style="background-image: url('<%= comment.user.avatar_url %>');"></span>
+        <span class="username-comment"><%= comment.user.username %></span>
+        <span class="time_ago"><%= "Created: #{time_ago_in_words(comment.created_at)}" %></span>
+      </div>
     </div>
-  </h5>
-  <div class="card-body">
-    <p class="card-text"><%= comment.body %></p>
-    <% if current_user == comment.user %>
-      <%= link_to "Edit comment", edit_post_comment_path(comment.post, comment),remote: true, class: "btn btn-primary " %>
-      <%= link_to "Delete comment", [comment.post, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?'},
-                                        class: "btn btn-primary delete-color" %>
-    <% end %>
+    <div class="col-6">
+      <p class="card-text"><%= comment.body %></p>
+    </div>
+    <div class="col buttons-edit-destroy">
+      <% if current_user == comment.user %>
+        <%= link_to "Edit", edit_post_comment_path(comment.post, comment),remote: true, class: "btn btn-primary" %>
+        <%= link_to "Delete", [comment.post, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?'},
+                                          class: "btn btn-primary delete-color" %>
+      <% end %>
+    </div>
   </div>
 </div>
