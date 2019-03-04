@@ -1,5 +1,10 @@
-<div class="card" id="comment-<%= comment.id %>">
-  <h5 class="card-header"><%= comment.user.username %></h5>
+<div id="comment-<%= comment.id %>">
+  <h5 class="card-header">
+    <div class="display-row">
+      <div class="small-circle-img margin-left" style="background-image: url('<%= comment.user.avatar_url %>');"></div>
+      <%= comment.user.username %>
+    </div>
+  </h5>
   <div class="card-body">
     <p class="card-text"><%= comment.body %></p>
     <% if current_user == comment.user %>

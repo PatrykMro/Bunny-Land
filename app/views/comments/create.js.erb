@@ -1,2 +1,2 @@
 $('#new-comment-form').remove();
-$('#comments').prepend("<%= j render 'comments/comment', comment: @comment %>")
+$('#post-<%= @post.id %> #collapseExample').append("<%= j render 'comments/comment', comment: @comment %>")

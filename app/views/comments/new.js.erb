@@ -1,1 +1,2 @@
-$('#post-<%= @post.id %> .card-footer').prepend(" <%= j render 'comments/new', post: @post %>")
+$('#new-comment-form').remove('')
+$('#post-<%= @post.id %> #collapseExample .comment-button').after(" <%= j render 'comments/new', post: @post %>")
